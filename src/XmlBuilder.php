@@ -6,6 +6,7 @@ use DOMXPath;
 use Selective\XmlDSig\DigestAlgorithmType;
 use Selective\XmlDSig\XmlSigner;
 
+
 $array = array
 (
 	"AttachedDocument" => Array (
