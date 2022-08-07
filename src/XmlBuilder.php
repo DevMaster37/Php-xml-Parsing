@@ -11,10 +11,6 @@ $array = array
 (
 	"AttachedDocument" => Array (
 		"ext:UBLExtensions" => Array (
-			"ext:UBLExtension" => Array (
-				"ext:ExtensionContent" => Array (
-				)
-			)
 		),
 		"cbc:UBLVersionID" => "UBL 2.1",
 		"cbc:CustomizationID" => "Documentos adjuntos",
@@ -146,13 +142,155 @@ $array = array
 	)
 );
 
+$sample_array = array
+(
+	"ApplicationResponse" => Array (
+		"ext:UBLExtensions" => Array (
+			"ext:UBLExtension" => Array (
+			   "ext:ExtensionContent" => Array (
+			      "sts:DianExtensions" => Array (
+			         "sts:InvoiceSource" => Array (
+			            "cbc:IdentificationCode" => "CO",
+			            "cbc:IdentificationCode-ATTR" => Array (
+			               listAgencyID => "6",
+			               listAgencyName => "United Nations Economic Commission for Europe",
+			               listSchemeURI => "urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1"
+			            )
+			         ),
+			         "sts:SoftwareProvider" => Array (
+			            "sts:ProviderID" => "899999115",
+			            "sts:ProviderID-ATTR" => Array (
+			               schemeAgencyID => "195",
+			               schemeAgencyName => "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+			               schemeID => "8",
+			               schemeName => "31"
+			            ),
+			            "sts:SoftwareID" => "1f-9a2cc7d-9572e3680feb",
+			            "sts:SoftwareID-ATTR" => Array (
+			               schemeAgencyID => "195",
+			               schemeAgencyName => "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)"
+			            )
+			         ),
+			         "sts:SoftwareSecurityCode" => "213d6e28799677b4ecfbcdc3bbc0778ae8a313e946ad8966e64862c5c882975e",
+			         "sts:SoftwareSecurityCode-ATTR" => Array (
+			            schemeAgencyID => "195",
+			            schemeAgencyName => "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)"
+			         ),
+			         "sts:AuthorizationProvider" => Array (
+			             "sts:AuthorizationProviderID" => "800197268",
+			             "sts:AuthorizationProviderID-ATTR" => Array (
+			                 schemeAgencyID => "195",
+			                schemeAgencyName => "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+			                schemeID => "4",
+			                schemeName => "31"
+			             )
+			         ),
+			         "sts:QRCode" => "https://catalogo-vpfe-hab.dian.gov.co/document/searchqr?documentkey=08c0f6a0b0609a2c0af6cd6a9ea4704d50366d1d"
+			      )
+			   )
+			)
+		),
+		"cbc:UBLVersionID" => "UBL 2.1",
+		"cbc:CustomizationID" => 1,
+		"cbc:ProfileID" => "DIAN 2.1: ApplicationResponse de la Factura Electrónica de Venta",
+		"cbc:ProfileExecutionID" => 2,
+		"cbc:ID" => "SETP9900001000007",
+		"cbc:UUID" => "23a03a1f6c655fg56721247e6a652693770fcf0c",
+		"cbc:UUID-ATTR" => Array (
+		schemeID => "2",
+		schemeName => "CUDE-SHA384"
+		),
+		"cbc:IssueDate" => "2022-07-13",
+		"cbc:IssueTime" => "14:22:13-05:00",
+		"cac:SenderParty" => Array (
+		"cac:PartyTaxScheme" => Array (
+		   "cbc:RegistrationName" => "EMPRESA DE ARTES GRAFICAS DE BOGOTA",
+		   "cbc:CompanyID" => 999875555,
+		   "cbc:CompanyID-ATTR" => Array (
+		      schemeAgencyID => "195",
+		      schemeAgencyName => "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+		      schemeID => "8",
+		      schemeName => "31",
+		      schemeVersionID => "1"
+		   ),
+		   "cac:TaxScheme" => Array (
+		      "cbc:ID" => "01",
+		      "cbc:Name" => "IVA"
+		   )
+		)
+		),
+		"cac:ReceiverParty" => Array (
+		"cac:PartyTaxScheme" => Array (
+		   "cbc:RegistrationName" => "GRUPO INED SAS",
+		   "cbc:CompanyID" => 9011629999,
+		   "cbc:CompanyID-ATTR" => Array (
+		      schemeAgencyID => "195",
+		      schemeAgencyName => "CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)",
+		      schemeID => "6",
+		      schemeName => "31",
+		      schemeVersionID => "1"
+		   ),
+		   "cac:TaxScheme" => Array (
+		      "cbc:ID" => "01",
+		      "cbc:Name" => "IVA"
+		   )
+		)
+		),
+		"cac:DocumentResponse" => Array (
+			"cac:Response" => Array (
+				"cbc:ResponseCode" => "030",
+				"cbc:Description" => "Acuse de recibo de Factura Electrónica de Venta"
+			),
+			"cac:DocumentReference" => Array (
+				"cbc:ID" => "SETP990000121",
+				"cbc:UUID" => "22d64438dtwe75B67habaae60634d50366d1d",
+				"cbc:UUID-ATTR" => Array (
+				  "schemeName" => "CUFE-SHA384"
+				),
+				"cbc:DocumentTypeCode" => "01"
+			),
+			"cac:IssuerParty" => Array (
+				"cac:Person" => Array (
+				  "cbc:ID" => "999875555",
+				  "cbc:ID-ATTR" => Array (
+				     "schemeID" => "8",
+				     "schemeName" => "31"
+				  ),
+				  "cbc:FirstName" => "EMPRESA DE ARTES GRAFICAS DE BOGOTA",
+				  "cbc:FamilyName" => "SAP",
+				  "cbc:JobTitle" => "Área de recepción de facturas",
+				  "cbc:OrganizationDepartment" => "Centro de recepción de documentos"
+				)
+			)
+		)
+	),
+	"ApplicationResponse-ATTR" => Array (
+	 "xmlns" => "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2",
+	 "xmlns:cac" => "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+	 "xmlns:cbc" => "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+	 "xmlns:ccts" => "urn:un:unece:uncefact:documentation:2",
+	 "xmlns:clm54217" => "urn:un:unece:uncefact:codelist:specification:54217:2001",
+	 "xmlns:clm66411" => "urn:un:unece:uncefact:codelist:specification:66411:2001",
+	 "xmlns:clmIANAMIMEMediaType" => "urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003",
+	 "xmlns:ds" => "http://www.w3.org/2000/09/xmldsig#",
+	 "xmlns:ext" => "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+	 "xmlns:fe" => "http://www.dian.gov.co/contratos/facturaelectronica/v1",
+	 "xmlns:ff" => "http://www.analitica.com.co/FactureFacil/Esquemas",
+	 "xmlns:qdt" => "urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2",
+	 "xmlns:sts" => "dian:gov:co:facturaelectronica:Structures-2-1",
+	 "xmlns:udt" => "urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2",
+	 "xmlns:xsd" => "http://www.w3.org/2001/XMLSchema",
+	 "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance",
+	 "xsi:schemaLocation" => "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2     http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-ApplicationResponse-2.1.xsd"
+	)
+);
 class XmlBuilder {
 	/**
-	 * Parse multidimentional array to XML.
-	 *
-	 * @param array $array
-	 * @return string	XML
-	 */
+	* Parse multidimentional array to XML.
+	*
+	* @param array $array
+	* @return string	XML
+	*/
 	var $xmlContent;
 
 	var $xml;
@@ -228,6 +366,10 @@ class XmlBuilder {
 $xmlbuilder = new XmlBuilder();
 $xmlbuilder->array2xml($array, true);
 $xmlbuilder->sign();
-$xmlbuilder->save("result.xml", false);
+$xmlbuilder->save("result_signed.xml", false);
 
+$xmlbuilder = new XmlBuilder();
+$xmlbuilder->array2xml($sample_array, true);
+$xmlbuilder->sign();
+$xmlbuilder->save("sample_signed.xml", false);
 ?>

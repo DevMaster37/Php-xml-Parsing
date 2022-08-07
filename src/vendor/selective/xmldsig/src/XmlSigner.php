@@ -396,9 +396,13 @@ final class XmlSigner
             throw new UnexpectedValueException('Undefined document element');
         }
 
-        $ext = $xml->getElementsByTagName('AttachedDocument')[0]->getElementsByTagName("ext:UBLExtensions")[0]
-        ->getElementsByTagName("ext:UBLExtension")[0]->getElementsByTagName("ext:ExtensionContent")[0];
-        $ext->appendChild($signatureElement);
+        
+        $ext = $xml->documentElement->childNodes[0];
+        $ublExtensionElement = $xml->createElement("ext:UBLExtension");
+        $ext->appendChild($ublExtensionElement);
+        $extensionContentElement = $xml->createElement("ext:ExtensionContent");
+        $ublExtensionElement->appendChild($extensionContentElement);
+        $extensionContentElement->appendChild($signatureElement);
 
         $signedInfoElement = $xml->createElement('SignedInfo');
         $signatureElement->appendChild($signedInfoElement);
