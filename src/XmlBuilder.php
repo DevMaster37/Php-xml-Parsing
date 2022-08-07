@@ -368,6 +368,7 @@ $xmlbuilder->array2xml($array, true);
 $xmlbuilder->sign();
 $xmlbuilder->save("result_signed.xml", false);
 
+
 $xmlbuilder = new XmlBuilder();
 $xmlbuilder->array2xml($sample_array, true);
 $xmlbuilder->sign();
