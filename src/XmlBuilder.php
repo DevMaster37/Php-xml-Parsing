@@ -6,7 +6,7 @@ use DOMXPath;
 use Selective\XmlDSig\DigestAlgorithmType;
 use Selective\XmlDSig\XmlSigner;
 
-
+//venus
 $array = array
 (
 	"AttachedDocument" => Array (
