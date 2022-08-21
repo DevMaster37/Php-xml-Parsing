@@ -341,7 +341,7 @@ class XmlBuilder {
 		}
 	}
 
-	public function sign()   
+	public function sign()
 	{
 		$xmlSigner = new XmlSigner();
 		$xmlSigner->loadPfxFile('901162935 GRUPO INEDITTO.pfx', '901162935');

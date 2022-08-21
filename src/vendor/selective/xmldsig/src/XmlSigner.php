@@ -386,7 +386,7 @@ final class XmlSigner
      */
     private function appendSignature(DOMDocument $xml, $digestValue)
     {
-        $signatureElement = $xml->createElement('Signature');
+        $signatureElement = $xml->createElement('ds:Signature');
         $signatureElement->setAttribute('xmlns', 'http://www.w3.org/2000/09/xmldsig#');
 
         // Append the element to the XML document.
@@ -404,52 +404,52 @@ final class XmlSigner
         $ublExtensionElement->appendChild($extensionContentElement);
         $extensionContentElement->appendChild($signatureElement);
 
-        $signedInfoElement = $xml->createElement('SignedInfo');
+        $signedInfoElement = $xml->createElement('ds:SignedInfo');
         $signatureElement->appendChild($signedInfoElement);
 
-        $canonicalizationMethodElement = $xml->createElement('CanonicalizationMethod');
+        $canonicalizationMethodElement = $xml->createElement('ds:CanonicalizationMethod');
         $canonicalizationMethodElement->setAttribute('Algorithm', 'http://www.w3.org/TR/2001/REC-xml-c14n-20010315');
         $signedInfoElement->appendChild($canonicalizationMethodElement);
 
-        $signatureMethodElement = $xml->createElement('SignatureMethod');
+        $signatureMethodElement = $xml->createElement('ds:SignatureMethod');
         $signatureMethodElement->setAttribute('Algorithm', $this->signatureAlgorithmUrl);
         $signedInfoElement->appendChild($signatureMethodElement);
 
-        $referenceElement = $xml->createElement('Reference');
+        $referenceElement = $xml->createElement('ds:Reference');
         $referenceElement->setAttribute('URI', $this->referenceUri);
         $signedInfoElement->appendChild($referenceElement);
 
-        $transformsElement = $xml->createElement('Transforms');
+        $transformsElement = $xml->createElement('ds:Transforms');
         $referenceElement->appendChild($transformsElement);
 
         // Enveloped: the <Signature> node is inside the XML we want to sign
-        $transformElement = $xml->createElement('Transform');
+        $transformElement = $xml->createElement('ds:Transform');
         $transformElement->setAttribute('Algorithm', 'http://www.w3.org/2000/09/xmldsig#enveloped-signature');
         $transformsElement->appendChild($transformElement);
 
-        $digestMethodElement = $xml->createElement('DigestMethod');
+        $digestMethodElement = $xml->createElement('ds:DigestMethod');
         $digestMethodElement->setAttribute('Algorithm', $this->digestAlgorithmUrl);
         $referenceElement->appendChild($digestMethodElement);
 
-        $digestValueElement = $xml->createElement('DigestValue', $digestValue);
+        $digestValueElement = $xml->createElement('ds:DigestValue', $digestValue);
         $referenceElement->appendChild($digestValueElement);
 
-        $signatureValueElement = $xml->createElement('SignatureValue', '');
+        $signatureValueElement = $xml->createElement('ds:SignatureValue', '');
         $signatureElement->appendChild($signatureValueElement);
 
-        $keyInfoElement = $xml->createElement('KeyInfo');
+        $keyInfoElement = $xml->createElement('ds:KeyInfo');
         $signatureElement->appendChild($keyInfoElement);
 
-        $keyValueElement = $xml->createElement('KeyValue');
+        $keyValueElement = $xml->createElement('ds:KeyValue');
         $keyInfoElement->appendChild($keyValueElement);
 
-        $rsaKeyValueElement = $xml->createElement('RSAKeyValue');
+        $rsaKeyValueElement = $xml->createElement('ds:RSAKeyValue');
         $keyValueElement->appendChild($rsaKeyValueElement);
 
-        $modulusElement = $xml->createElement('Modulus', $this->modulus);
+        $modulusElement = $xml->createElement('ds:Modulus', $this->modulus);
         $rsaKeyValueElement->appendChild($modulusElement);
 
-        $exponentElement = $xml->createElement('Exponent', $this->publicExponent);
+        $exponentElement = $xml->createElement('ds:Exponent', $this->publicExponent);
         $rsaKeyValueElement->appendChild($exponentElement);
 
         // http://www.soapclient.com/XMLCanon.html
@@ -467,7 +467,8 @@ final class XmlSigner
         }
 
         $xpath = new DOMXpath($xml);
-        $signatureValueElement = $this->xmlReader->queryDomNode($xpath, '//SignatureValue', $signatureElement);
+        //$signatureValueElement = $this->xmlReader->queryDomNode($xpath, '//ds:SignatureValue', $signatureElement);
+        //$signatureValueElement->nodeValue = base64_encode($signatureValue);
         $signatureValueElement->nodeValue = base64_encode($signatureValue);
     }
 

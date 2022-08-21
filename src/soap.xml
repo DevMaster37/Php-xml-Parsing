@@ -1,0 +1,9 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:wcf="http://wcf.dian.colombia">
+   <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+   </soap:Header>
+   <soap:Body>
+      <wcf:GetStatusZip>
+      <wcf:trackId>927509ba-6bf9-4161-9378-dcb9e749c3d1</wcf:trackId>
+      </wcf:GetStatusZip>
+      </soap:Body>
+</soap:Envelope>
